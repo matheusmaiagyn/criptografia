@@ -1,6 +1,17 @@
 from tkinter import *
 from tkinter import messagebox
 
+codalpha = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x',
+            'c', 'v', 'b', 'n', 'm',
+            '#', '5', '4', '6', '7', '2', '1', '3', '9', '0', '8', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
+            'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K',
+            'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '&', 'õ', 'é', '[', 'ã', 'á', 'í', '{', '*', '@', '}']
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+         'x', 'w', 'y', 'z', 'ç',
+         '1', '2', '3', '4', '5', '6' '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+         'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+         'V', 'X', 'W', 'Y', 'Z', 'Ç', 'ã', 'õ', 'é', 'ô', 'í', 'á', ':', '.', ',', ' ']
+
 #SE A CHECKBOX FOR MARCADA MOSTRA ALERTAS
 def checkauto():
        if auto.get() == 1:
@@ -39,85 +50,16 @@ def criptografar():
        msgli = []
        msgli.extend(msg)    #ADICIONA A MENSAGEM PARA UMA LISTA
        crip = 0 #CONTADOR
+       codmsg = []
+       for k in range(qtcrip):
+              for i in range(len(msgli)):
+                     for j in range(len(alpha)):
+                            if msgli[i] == alpha[j]:
+                                   codmsg.append(codalpha[j])
+              msgli = codmsg
+              cod = codmsg
+              codmsg = []
 
-       while crip < qtcrip:        #ENQUANTO O CONTADOR FOR MENOR A QUANTAS VEZES A PESSOA PEDIU PARA CRIPTOGRAFAR É EXECUTADO A CRIPTOGRAFIA EM CIMA DA MENSAGEM
-              cod = ['q' if x == 'a' else
-                     'w' if x == 'b' else
-                     'e' if x == 'c' else
-                     'r' if x == 'd' else
-                     't' if x == 'e' else
-                     'y' if x == 'f' else
-                     'u' if x == 'g' else
-                     'i' if x == 'h' else
-                     'o' if x == 'i' else
-                     'p' if x == 'j' else
-                     'a' if x == 'k' else
-                     's' if x == 'l' else
-                     'd' if x == 'm' else
-                     'f' if x == 'n' else
-                     'g' if x == 'o' else
-                     'h' if x == 'p' else
-                     'j' if x == 'q' else
-                     'k' if x == 'r' else
-                     'l' if x == 's' else
-                     'z' if x == 't' else
-                     'x' if x == 'u' else
-                     'c' if x == 'v' else
-                     'v' if x == 'x' else
-                     'b' if x == 'w' else
-                     'n' if x == 'y' else
-                     'm' if x == 'z' else
-                     '#' if x == 'ç' else
-                     '5' if x == '1' else
-                     '4' if x == '2' else
-                     '6' if x == '3' else
-                     '7' if x == '4' else
-                     '2' if x == '5' else
-                     '1' if x == '6' else
-                     '3' if x == '7' else
-                     '9' if x == '8' else
-                     '0' if x == '9' else
-                     '8' if x == '0' else
-                     'Q' if x == 'A' else
-                     'W' if x == 'B' else
-                     'E' if x == 'C' else
-                     'R' if x == 'D' else
-                     'T' if x == 'E' else
-                     'Y' if x == 'F' else
-                     'U' if x == 'G' else
-                     'I' if x == 'H' else
-                     'O' if x == 'I' else
-                     'P' if x == 'J' else
-                     'A' if x == 'K' else
-                     'S' if x == 'L' else
-                     'D' if x == 'M' else
-                     'F' if x == 'N' else
-                     'G' if x == 'O' else
-                     'H' if x == 'P' else
-                     'J' if x == 'Q' else
-                     'K' if x == 'R' else
-                     'L' if x == 'S' else
-                     'Z' if x == 'T' else
-                     'X' if x == 'U' else
-                     'C' if x == 'V' else
-                     'V' if x == 'X' else
-                     'B' if x == 'W' else
-                     'N' if x == 'Y' else
-                     'M' if x == 'Z' else
-                     '&' if x == 'Ç' else
-                     'õ' if x == 'ã' else
-                     'é' if x == 'õ' else
-                     '[' if x == 'é' else
-                     'ã' if x == 'ô' else
-                     'á' if x == 'í' else
-                     'í' if x == 'á' else
-                     '{' if x == ':' else
-                     '*' if x == '.' else
-                     '@' if x == ',' else
-                     '}' if x == ' ' else
-                     x for x in msgli]
-              msgli = cod  # MSGLI (MSG PARA CRIPTOGRAFAR) IGUAL A COD (MSG CRIPTOGRAFADA) PARA QUE SEJA POSSÍVEL QUE ELA PASSE MAIS DE UMA VEZ NA CRIPTOGRAFIA!
-              crip += 1  # CONTADOR!
        #INSERE VALORES DE CONTROLE PARA DESCRIPTOGRAFAR A MENSAGEM
        cod.insert(0, 1)
        cod.insert(1, 1)
@@ -257,6 +199,8 @@ def descriptografar():
                      qtcrip = 53
               elif msgli[0] == 'Q':
                      qtcrip = 54
+              msgli.pop(1)
+              msgli.pop(0)
 
        #CASO N TENHA SIDO AUTOMÁTICA
        else:
@@ -290,86 +234,16 @@ def descriptografar():
               except:
                      messagebox.showerror('Erro', 'Digite a chave para a descriptografia!')
 
-       while crip < qtcrip:        #DESCRIPTOGRAFIA
-              cod = ['a' if x == 'q' else
-                     'b' if x == 'w' else
-                     'c' if x == 'e' else
-                     'd' if x == 'r' else
-                     'e' if x == 't' else
-                     'f' if x == 'y' else
-                     'g' if x == 'u' else
-                     'h' if x == 'i' else
-                     'i' if x == 'o' else
-                     'j' if x == 'p' else
-                     'k' if x == 'a' else
-                     'l' if x == 's' else
-                     'm' if x == 'd' else
-                     'n' if x == 'f' else
-                     'o' if x == 'g' else
-                     'p' if x == 'h' else
-                     'q' if x == 'j' else
-                     'r' if x == 'k' else
-                     's' if x == 'l' else
-                     't' if x == 'z' else
-                     'u' if x == 'x' else
-                     'v' if x == 'c' else
-                     'x' if x == 'v' else
-                     'w' if x == 'b' else
-                     'y' if x == 'n' else
-                     'z' if x == 'm' else
-                     'ç' if x == '#' else
-                     '1' if x == '5' else
-                     '2' if x == '4' else
-                     '3' if x == '6' else
-                     '4' if x == '7' else
-                     '5' if x == '2' else
-                     '6' if x == '1' else
-                     '7' if x == '3' else
-                     '8' if x == '9' else
-                     '9' if x == '0' else
-                     '0' if x == '8' else
-                     'A' if x == 'Q' else
-                     'B' if x == 'W' else
-                     'C' if x == 'E' else
-                     'D' if x == 'R' else
-                     'E' if x == 'T' else
-                     'F' if x == 'Y' else
-                     'G' if x == 'U' else
-                     'H' if x == 'I' else
-                     'I' if x == 'O' else
-                     'J' if x == 'P' else
-                     'K' if x == 'A' else
-                     'L' if x == 'S' else
-                     'M' if x == 'D' else
-                     'N' if x == 'F' else
-                     'O' if x == 'G' else
-                     'P' if x == 'H' else
-                     'Q' if x == 'J' else
-                     'R' if x == 'K' else
-                     'S' if x == 'L' else
-                     'T' if x == 'Z' else
-                     'U' if x == 'X' else
-                     'V' if x == 'C' else
-                     'X' if x == 'V' else
-                     'W' if x == 'B' else
-                     'Y' if x == 'N' else
-                     'Z' if x == 'M' else
-                     'Ç' if x == '&' else
-                     'ã' if x == 'õ' else
-                     'õ' if x == 'é' else
-                     'é' if x == '[' else
-                     'ô' if x == 'ã' else
-                     'í' if x == 'á' else
-                     'á' if x == 'í' else
-                     ':' if x == '{' else
-                     '.' if x == '*' else
-                     ',' if x == '@' else
-                     ' ' if x == '}' else
-                     x for x in msgli]
-              msgli = cod  # MSGLI (MSG PARA DESCRIPTOGRAFAR) IGUAL A COD (MSG DESCRIPTOGRAFADA) PARA QUE SEJA POSSÍVEL QUE ELA PASSE MAIS DE UMA VEZ NA DESCRIPTOGRAFIA!
-              crip += 1  # CONTADOR!
-       cod.pop(1)    #RETIRADA DE VALORES DE CONTROLE PARA NÃO INERFERIR NO RESULTADO FINAL
-       cod.pop(0)    #RETIRADA DE VALORES DE CONTROLE PARA NÃO INERFERIR NO RESULTADO FINAL
+       codmsg = []
+       for k in range(qtcrip):
+              for i in range(len(msgli)):
+                     for j in range(len(codalpha)):
+                            if msgli[i] == codalpha[j]:
+                                   codmsg.append(alpha[j])
+              msgli = codmsg
+              cod = codmsg
+              codmsg = []
+
        msgcod.set(''.join(str(i) for i in cod))  #PRINT DA MENSAGEM FINAL
        auto.set(0)   #DESMARCA OPÇÃO DE DESCRIPTOGRAFIA AUTOMÁTICA
 
