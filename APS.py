@@ -9,21 +9,16 @@ def checkauto():
 
 #FUNÇÃO PARA CRIPTOGRAFAR
 def criptografar():
+       key = ['w', 'd', 'v', 'e', 'f', 'b', 'r', 'g', 'n', 'o']
+       number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
        qtcrip = str(cript.get())   #PEGA A CHAVE
        cripqt = []   #CRIA A LISTA PARA A CHAVE
        cripqt.extend(qtcrip)       #ADD CHAVE PARA LISTA
-       qtdcod = ['w' if x == '1' else
-                 'd' if x == '2' else
-                 'v' if x == '3' else
-                 'e' if x == '4' else
-                 'f' if x == '5' else
-                 'b' if x == '6' else
-                 'r' if x == '7' else
-                 'g' if x == '8' else
-                 'n' if x == '9' else
-                 'o' if x == '0' else
-                 x for x in cripqt]       #TRANSFORMA CHAVE
-       chave = (str)
+       qtdcod = []
+       for i in range(len(cripqt)):
+              for j in range(len(number)):
+                     if cripqt[i] == number[j]:
+                            qtdcod.append(key[j])
 
        #TRATAMENTO PARA CASO A QUANTIDADE INSERIDA SEJA LETRAS OU NULO
        try:
@@ -33,114 +28,11 @@ def criptografar():
 
        #SE A OPÇÃO DE DESCRIPTOGRAFAR AUTOMATICAMENTE FOI ESCOLHIDA, TRANDORMA A QUANTIDADE DE CRIPTOGRAFIA EM UMA CHAVE (ATÉ 54 NÚMEROS)
        if auto.get() == 1:
-              if qtcrip == 1:
-                     ncrip = 'm'
-              elif qtcrip == 2:
-                     ncrip = 'n'
-              elif qtcrip == 3:
-                     ncrip = 'b'
-              elif qtcrip == 4:
-                     ncrip = 'v'
-              elif qtcrip == 5:
-                     ncrip = 'c'
-              elif qtcrip == 6:
-                     ncrip = 'x'
-              elif qtcrip == 7:
-                     ncrip = 'z'
-              elif qtcrip == 8:
-                     ncrip = 'ç'
-              elif qtcrip == 9:
-                     ncrip = 'l'
-              elif qtcrip == 10:
-                     ncrip = 'k'
-              elif qtcrip == 11:
-                     ncrip = 'j'
-              elif qtcrip == 12:
-                     ncrip = 'h'
-              elif qtcrip == 13:
-                     ncrip = 'g'
-              elif qtcrip == 14:
-                     ncrip = 'f'
-              elif qtcrip == 15:
-                     ncrip = 'd'
-              elif qtcrip == 16:
-                     ncrip = 's'
-              elif qtcrip == 17:
-                     ncrip = 'a'
-              elif qtcrip == 18:
-                     ncrip = 'p'
-              elif qtcrip == 19:
-                     ncrip = 'o'
-              elif qtcrip == 20:
-                     ncrip = 'i'
-              elif qtcrip == 21:
-                     ncrip = 'u'
-              elif qtcrip == 22:
-                     ncrip = 'y'
-              elif qtcrip == 23:
-                     ncrip = 't'
-              elif qtcrip == 24:
-                     ncrip = 'r'
-              elif qtcrip == 25:
-                     ncrip = 'e'
-              elif qtcrip == 26:
-                     ncrip = 'w'
-              elif qtcrip == 27:
-                     ncrip = 'q'
-              elif qtcrip == 28:
-                     ncrip = 'M'
-              elif qtcrip == 29:
-                     ncrip = 'N'
-              elif qtcrip == 30:
-                     ncrip = 'B'
-              elif qtcrip == 31:
-                     ncrip = 'V'
-              elif qtcrip == 32:
-                     ncrip = 'C'
-              elif qtcrip == 33:
-                     ncrip = 'X'
-              elif qtcrip == 34:
-                     ncrip = 'Z'
-              elif qtcrip == 35:
-                     ncrip = 'Ç'
-              elif qtcrip == 36:
-                     ncrip = 'L'
-              elif qtcrip == 37:
-                     ncrip = 'K'
-              elif qtcrip == 38:
-                     ncrip = 'J'
-              elif qtcrip == 39:
-                     ncrip = 'H'
-              elif qtcrip == 40:
-                     ncrip = 'G'
-              elif qtcrip == 41:
-                     ncrip = 'F'
-              elif qtcrip == 42:
-                     ncrip = 'D'
-              elif qtcrip == 43:
-                     ncrip = 'S'
-              elif qtcrip == 44:
-                     ncrip = 'A'
-              elif qtcrip == 45:
-                     ncrip = 'P'
-              elif qtcrip == 46:
-                     ncrip = 'O'
-              elif qtcrip == 47:
-                     ncrip = 'I'
-              elif qtcrip == 48:
-                     ncrip = 'U'
-              elif qtcrip == 49:
-                     ncrip = 'Y'
-              elif qtcrip == 50:
-                     ncrip = 'T'
-              elif qtcrip == 51:
-                     ncrip = 'R'
-              elif qtcrip == 52:
-                     ncrip = 'E'
-              elif qtcrip == 53:
-                     ncrip = 'W'
-              elif qtcrip == 54:
-                     ncrip = 'Q'
+              keyauto = ['m', 'n', 'b', 'v', 'c', 'x', 'z', 'ç', 'l', 'k', 'j', 'h', 'g', 'f', 'd', 's', 'a', 'p', 'o', 'i', 'u', 'y', 't', 'r', 'e', 'w', 'q',
+                         'M', 'N', 'B', 'V', 'C', 'X', 'Z', 'Ç', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'A', 'P', 'O', 'I', 'U' ,'Y', 'T', 'R', 'E', 'W', 'Q']
+              for i in range(1, 55):
+                     if qtcrip == i:
+                            ncrip = keyauto[i-1]
 
        #PEGA A MENSAGEM A SER CRIPTOGRAFADA
        msg = e.get()
