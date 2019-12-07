@@ -1,16 +1,20 @@
 from tkinter import *
 from tkinter import messagebox
 
-codalpha = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x',
-            'c', 'v', 'b', 'n', 'm',
-            '#', '5', '4', '6', '7', '2', '1', '3', '9', '0', '8', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-            'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K',
-            'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '&', 'õ', 'é', '[', 'ã', 'á', 'í', '{', '*', '@', '}']
-alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-         'x', 'w', 'y', 'z', 'ç',
-         '1', '2', '3', '4', '5', '6' '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-         'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-         'V', 'X', 'W', 'Y', 'Z', 'Ç', 'ã', 'õ', 'é', 'ô', 'í', 'á', ':', '.', ',', ' ']
+codalpha = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x','c', 'v', 'b', 'n', 'm','#',
+            '5', '4', '6', '7', '2', '1', '3', '9', '0', '8', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P','A', 'S', 'D', 'F', 'G', 'H', 'J',
+            'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '&', 'õ', 'é', '[', 'ã', 'á', 'í', '{', '*', '@', '}']
+
+alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v','x', 'w', 'y', 'z', 'ç', '1',
+         '2', '3', '4', '5', '6' '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+         'U', 'V', 'X', 'W', 'Y', 'Z', 'Ç', 'ã', 'õ', 'é', 'ô', 'í', 'á', ':', '.', ',', ' ']
+
+key = ['w', 'd', 'v', 'e', 'f', 'b', 'r', 'g', 'n', 'o']
+
+number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+keyauto = ['m', 'n', 'b', 'v', 'c', 'x', 'z', 'ç', 'l', 'k', 'j', 'h', 'g', 'f', 'd', 's', 'a', 'p', 'o', 'i', 'u', 'y', 't', 'r', 'e', 'w', 'q',
+           'M', 'N', 'B', 'V', 'C', 'X', 'Z', 'Ç', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'A', 'P', 'O', 'I', 'U' ,'Y', 'T', 'R', 'E', 'W', 'Q']
 
 #SE A CHECKBOX FOR MARCADA MOSTRA ALERTAS
 def checkauto():
@@ -20,8 +24,6 @@ def checkauto():
 
 #FUNÇÃO PARA CRIPTOGRAFAR
 def criptografar():
-       key = ['w', 'd', 'v', 'e', 'f', 'b', 'r', 'g', 'n', 'o']
-       number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
        qtcrip = str(cript.get())   #PEGA A CHAVE
        cripqt = []   #CRIA A LISTA PARA A CHAVE
        cripqt.extend(qtcrip)       #ADD CHAVE PARA LISTA
@@ -39,8 +41,6 @@ def criptografar():
 
        #SE A OPÇÃO DE DESCRIPTOGRAFAR AUTOMATICAMENTE FOI ESCOLHIDA, TRANDORMA A QUANTIDADE DE CRIPTOGRAFIA EM UMA CHAVE (ATÉ 54 NÚMEROS)
        if auto.get() == 1:
-              keyauto = ['m', 'n', 'b', 'v', 'c', 'x', 'z', 'ç', 'l', 'k', 'j', 'h', 'g', 'f', 'd', 's', 'a', 'p', 'o', 'i', 'u', 'y', 't', 'r', 'e', 'w', 'q',
-                         'M', 'N', 'B', 'V', 'C', 'X', 'Z', 'Ç', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'A', 'P', 'O', 'I', 'U' ,'Y', 'T', 'R', 'E', 'W', 'Q']
               for i in range(1, 55):
                      if qtcrip == i:
                             ncrip = keyauto[i-1]
@@ -49,7 +49,6 @@ def criptografar():
        msg = e.get()
        msgli = []
        msgli.extend(msg)    #ADICIONA A MENSAGEM PARA UMA LISTA
-       crip = 0 #CONTADOR
        codmsg = []
        for k in range(qtcrip):
               for i in range(len(msgli)):
@@ -89,116 +88,11 @@ def descriptografar():
        msg = e.get()
        msgli = []
        msgli.extend(msg)    #ADICIONA A MENSAGEM A UMA LISTA
-       crip = 0      #CONTADOR
-       if msgli[1] == 'a' or msgli[1] == 'A':  #CASO NA HORA DE CRIPTOGRAFAR A OPÇÃO DE DESCRIPTOGRAFAR AUTOMÁTICAMENTE TENHA SIDO MARCADA, TRANSFORMA A LETRA DE CONTROLE NA MENSAGEM NA QUANTIDADE DE VEZES QUE SERÁ DESCRIPTOGRAFADA
-              if msgli[0] == 'm':
-                     qtcrip = 1
-              elif msgli[0] == 'n':
-                     qtcrip = 2
-              elif msgli[0] == 'b':
-                     qtcrip = 3
-              elif msgli[0] == 'v':
-                     qtcrip = 4
-              elif msgli[0] == 'c':
-                     qtcrip = 5
-              elif msgli[0] == 'x':
-                     qtcrip = 6
-              elif msgli[0] == 'z':
-                     qtcrip = 7
-              elif msgli[0] == 'ç':
-                     qtcrip = 8
-              elif msgli[0] == 'l':
-                     qtcrip = 9
-              elif msgli[0] == 'k':
-                     qtcrip = 10
-              elif msgli[0] == 'j':
-                     qtcrip = 11
-              elif msgli[0] == 'h':
-                     qtcrip = 12
-              elif msgli[0] == 'g':
-                     qtcrip = 13
-              elif msgli[0] == 'f':
-                     qtcrip = 14
-              elif msgli[0] == 'd':
-                     qtcrip = 15
-              elif msgli[0] == 's':
-                     qtcrip = 16
-              elif msgli[0] == 'a':
-                     qtcrip = 17
-              elif msgli[0] == 'p':
-                     qtcrip = 18
-              elif msgli[0] == 'o':
-                     qtcrip = 19
-              elif msgli[0] == 'i':
-                     qtcrip = 20
-              elif msgli[0] == 'u':
-                     qtcrip = 21
-              elif msgli[0] == 'y':
-                     qtcrip = 22
-              elif msgli[0] == 't':
-                     qtcrip = 23
-              elif msgli[0] == 'r':
-                     qtcrip = 24
-              elif msgli[0] == 'e':
-                     qtcrip = 25
-              elif msgli[0] == 'w':
-                     qtcrip = 26
-              elif msgli[0] == 'q':
-                     qtcrip = 27
-              elif msgli[0] == 'M':
-                     qtcrip = 28
-              elif msgli[0] == 'N':
-                     qtcrip = 29
-              elif msgli[0] == 'B':
-                     qtcrip = 30
-              elif msgli[0] == 'V':
-                     qtcrip = 31
-              elif msgli[0] == 'C':
-                     qtcrip = 32
-              elif msgli[0] == 'X':
-                     qtcrip = 33
-              elif msgli[0] == 'Z':
-                     qtcrip = 34
-              elif msgli[0] == 'Ç':
-                     qtcrip = 35
-              elif msgli[0] == 'L':
-                     qtcrip = 36
-              elif msgli[0] == 'K':
-                     qtcrip = 37
-              elif msgli[0] == 'J':
-                     qtcrip = 38
-              elif msgli[0] == 'H':
-                     qtcrip = 39
-              elif msgli[0] == 'G':
-                     qtcrip = 40
-              elif msgli[0] == 'F':
-                     qtcrip = 41
-              elif msgli[0] == 'D':
-                     qtcrip = 42
-              elif msgli[0] == 'S':
-                     qtcrip = 43
-              elif msgli[0] == 'A':
-                     qtcrip = 44
-              elif msgli[0] == 'P':
-                     qtcrip = 45
-              elif msgli[0] == 'O':
-                     qtcrip = 46
-              elif msgli[0] == 'I':
-                     qtcrip = 47
-              elif msgli[0] == 'U':
-                     qtcrip = 48
-              elif msgli[0] == 'Y':
-                     qtcrip = 49
-              elif msgli[0] == 'T':
-                     qtcrip = 50
-              elif msgli[0] == 'R':
-                     qtcrip = 51
-              elif msgli[0] == 'E':
-                     qtcrip = 52
-              elif msgli[0] == 'W':
-                     qtcrip = 53
-              elif msgli[0] == 'Q':
-                     qtcrip = 54
+       if msgli[1] == 'a' or msgli[1] == 'A':#CASO NA HORA DE CRIPTOGRAFAR A OPÇÃO DE DESCRIPTOGRAFAR AUTOMÁTICAMENTE TENHA SIDO MARCADA, TRANSFORMA A LETRA DE CONTROLE NA MENSAGEM NA QUANTIDADE DE VEZES QUE SERÁ DESCRIPTOGRAFADA
+              for i in range(len(keyauto)):
+                     if msgli[0] == keyauto[i]:
+                            qtcrip = i+1
+                            break
               msgli.pop(1)
               msgli.pop(0)
 
@@ -208,28 +102,12 @@ def descriptografar():
                      qtcrip = str(cript.get())   #PEGA QUANTIDADE DE VEZES
                      cripqt = []
                      cripqt.extend(qtcrip)       #ADICIONA PARA UMA LISA
-                     qtdcod = ['1' if x == 'w' else     #TRANFORMA LETRAS DIGITAS EM NÚMEROS
-                               '2' if x == 'd' else
-                               '3' if x == 'v' else
-                               '4' if x == 'e' else
-                               '5' if x == 'f' else
-                               '6' if x == 'b' else
-                               '7' if x == 'r' else
-                               '8' if x == 'g' else
-                               '9' if x == 'n' else
-                               '0' if x == 'o' else
-                               '1' if x == 'W' else
-                               '2' if x == 'D' else
-                               '3' if x == 'V' else
-                               '4' if x == 'E' else
-                               '5' if x == 'F' else
-                               '6' if x == 'B' else
-                               '7' if x == 'R' else
-                               '8' if x == 'G' else
-                               '9' if x == 'N' else
-                               '0' if x == 'O' else
-                               '1' if x == x else       #CASO A LETRA DIGITADA NÃO SEJA NENHUMA VÁLIDA, É TRANSFORMADA EM 1
-                               x for x in cripqt]
+                     qtdcod = []
+                     for i in range(len(cripqt)):
+                            for j in range(len(key)):
+                                   if cripqt[i] == key[j]:
+                                          qtdcod.append(number[j])
+
                      qtcrip = int(''.join((str(i) for i in qtdcod))) #TRANSFORMA A QUANTIDADE DE DESCRIPTOGRAFIA EM VARIÁVEL INTEIRO
               except:
                      messagebox.showerror('Erro', 'Digite a chave para a descriptografia!')
