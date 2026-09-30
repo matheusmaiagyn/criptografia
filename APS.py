@@ -16,6 +16,16 @@ number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 keyauto = ['m', 'n', 'b', 'v', 'c', 'x', 'z', 'ç', 'l', 'k', 'j', 'h', 'g', 'f', 'd', 's', 'a', 'p', 'o', 'i', 'u', 'y', 't', 'r', 'e', 'w', 'q',
            'M', 'N', 'B', 'V', 'C', 'X', 'Z', 'Ç', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'A', 'P', 'O', 'I', 'U' ,'Y', 'T', 'R', 'E', 'W', 'Q']
 
+# Pré-calcula as substituições para evitar percorrer o alfabeto a cada caractere.
+def _build_substitution_map(source, target):
+       substitutions = {}
+       for source_char, target_char in zip(source, target):
+              substitutions.setdefault(source_char, []).append(target_char)
+       return {char: tuple(replacements) for char, replacements in substitutions.items()}
+
+ENCRYPTION_MAP = _build_substitution_map(alpha, codalpha)
+DECRYPTION_MAP = _build_substitution_map(codalpha, alpha)
+
 #SE A CHECKBOX FOR MARCADA MOSTRA ALERTAS
 def checkauto():
        if auto.get() == 1:
@@ -51,13 +61,9 @@ def criptografar():
        msgli.extend(msg)    #ADICIONA A MENSAGEM PARA UMA LISTA
        codmsg = []
        for k in range(qtcrip):
-              for i in range(len(msgli)):
-                     for j in range(len(alpha)):
-                            if msgli[i] == alpha[j]:
-                                   codmsg.append(codalpha[j])
+              codmsg = [encoded for char in msgli for encoded in ENCRYPTION_MAP.get(char, ())]
               msgli = codmsg
               cod = codmsg
-              codmsg = []
 
        #INSERE VALORES DE CONTROLE PARA DESCRIPTOGRAFAR A MENSAGEM
        cod.insert(0, 1)
@@ -114,13 +120,9 @@ def descriptografar():
 
        codmsg = []
        for k in range(qtcrip):
-              for i in range(len(msgli)):
-                     for j in range(len(codalpha)):
-                            if msgli[i] == codalpha[j]:
-                                   codmsg.append(alpha[j])
+              codmsg = [decoded for char in msgli for decoded in DECRYPTION_MAP.get(char, ())]
               msgli = codmsg
               cod = codmsg
-              codmsg = []
 
        msgcod.set(''.join(str(i) for i in cod))  #PRINT DA MENSAGEM FINAL
        auto.set(0)   #DESMARCA OPÇÃO DE DESCRIPTOGRAFIA AUTOMÁTICA
